@@ -1,11 +1,10 @@
-
 Particle[] hai;
 void setup()
 {
   size(400, 400);
   noStroke();
   hai = new Particle[100];
-  for (int i = 0; i < 5; i++){
+  for (int i = 0; i < 5; i++) {
     hai[i] = new OddballParticle();
   }
   for (int i = 5; i < 100; i++) {
@@ -37,6 +36,14 @@ class Particle
   void move() {
     myX = myX+spdX;
     myY = myY+spdY;
+    if (myX > 400 || myY > 400 || myX < -400|| myY < -400) {
+      myX = 200;
+      myY = 200;
+      col = color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
+      ang = (Math.random()*2*Math.PI);
+      spdX = (Math.random()*4) * Math.cos(ang);
+      spdY = (Math.random()*4) * Math.sin(ang);
+    }
   }
   void show() {
     fill(color(col), 90);
@@ -59,6 +66,14 @@ class OddballParticle extends Particle
   void move() {
     myX = myX+(int)(Math.random()*7)-3;
     myY = myY+(int)(Math.random()*7)-3;
+    if (myX == 400 || myY == 400 || myX == -400|| myY == -400) {
+      myX = 200;
+      myY = 200;
+      col = color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
+      ang = (Math.random()*2*Math.PI);
+      spdX = (Math.random()*4) * Math.cos(ang);
+      spdY = (Math.random()*4) * Math.sin(ang);
+    }
   }
   void show() {
     fill(color(col), 90);
@@ -66,6 +81,5 @@ class OddballParticle extends Particle
     ellipse((float)myX, (float)myY, (float)rad, (float)rad);
   }
 }
-
 
 
