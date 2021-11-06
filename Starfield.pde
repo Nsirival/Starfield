@@ -70,15 +70,12 @@ class OddballParticle extends Particle
       myX = 200;
       myY = 200;
       col = color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
-      ang = (Math.random()*2*Math.PI);
-      spdX = (Math.random()*4) * Math.cos(ang);
-      spdY = (Math.random()*4) * Math.sin(ang);
     }
   }
   void show() {
-    fill(color(col), 90);
+    fill(color(col), 50);
     stroke(0, 10);
-    ellipse((float)myX, (float)myY, (float)rad, (float)rad);
+    rect((float)myX-25, (float)myY-25, 50, 50);
   }
 }
 
